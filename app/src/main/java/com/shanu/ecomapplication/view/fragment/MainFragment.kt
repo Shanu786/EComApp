@@ -48,6 +48,8 @@ class MainFragment() : Fragment(), KodeinAware, OnItemClickListener {
         itemViewPager = fragMainBinding.root.findViewById(R.id.imageViewPager)
         dotsIndicator = fragMainBinding.root.findViewById(R.id.dotsIndicator)
 
+        setupProductListRowItemView(fragMainBinding.viewProdLayout.list_product)
+
         val imagesList: ArrayList<Int> = ArrayList()
         imagesList.add(R.drawable.carousel1)
         imagesList.add(R.drawable.carousel2)
@@ -60,8 +62,15 @@ class MainFragment() : Fragment(), KodeinAware, OnItemClickListener {
         dotsIndicator.setViewPager(itemViewPager)
         itemViewPager.adapter?.registerDataSetObserver(dotsIndicator.dataSetObserver)
 
-//        getProductList()
-        setupProductListRowItemView(fragMainBinding.viewProdLayout.list_product)
+        activity?.let {
+            mainFragViewModel?.getProductsList().observe(viewLifecycleOwner, Observer {
+                it.let {
+                    val productItemAdapter = fragMainBinding.viewProdLayout.list_product.adapter as ProductItemAdapter
+                    productItemAdapter.setProductItemList(it as MutableList<ProductListResponse>)
+                    productItemAdapter.setListener(this)
+                }
+            })
+        }
 
         fragMainBinding.lifecycleOwner = viewLifecycleOwner
         return fragMainBinding.root
@@ -70,22 +79,9 @@ class MainFragment() : Fragment(), KodeinAware, OnItemClickListener {
     private fun setupProductListRowItemView(listProductRecyclerView: RecyclerView?) {
         val productAdapter = ProductItemAdapter()
         listProductRecyclerView?.adapter = productAdapter
-//        listProductRecyclerView?.layoutManager = LinearLayoutManager(context)
         val gridLayoutManager = GridLayoutManager(activity, 2, LinearLayoutManager.HORIZONTAL, false)
         listProductRecyclerView?.layoutManager = gridLayoutManager // set LayoutManager to RecyclerView
         productAdapter.setListener(this)
-    }
-
-    private fun getProductList() {
-        activity.let {
-            mainFragViewModel.getProductsList().observe(viewLifecycleOwner, Observer {
-                it.let {
-                    val productItemAdapter = fragMainBinding.viewProdLayout.list_product.adapter as ProductItemAdapter
-                    productItemAdapter.setProductItemList(it as MutableList<ProductListResponse>)
-                    productItemAdapter.setListener(this)
-                }
-            })
-        }
     }
 
 }
