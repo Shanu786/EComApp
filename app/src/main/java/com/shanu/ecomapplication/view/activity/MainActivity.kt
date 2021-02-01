@@ -2,7 +2,6 @@ package com.shanu.ecomapplication.view.activity
 
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
@@ -12,7 +11,6 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.navigation.NavigationView
 import com.shanu.ecomapplication.R
-import kotlinx.android.synthetic.main.content_main.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 
