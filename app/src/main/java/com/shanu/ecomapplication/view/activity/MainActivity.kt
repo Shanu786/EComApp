@@ -37,9 +37,9 @@ class MainActivity : KodeinAware, AppCompatActivity(), NavigationView.OnNavigati
         navView = findViewById(R.id.navigationView)
         navController = Navigation.findNavController(this, R.id.myFragment)
 
-        val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, 0, 0)
+/*        val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, 0, 0)
         drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
+        toggle.syncState()*/
 
         NavigationUI.setupActionBarWithNavController(this, navController!!, drawerLayout)
         NavigationUI.setupWithNavController(navView, navController!!)

@@ -24,7 +24,6 @@ import kotlinx.android.synthetic.main.view_product.view.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.kodein
 
-
 class MainFragment() : Fragment(), KodeinAware, OnItemClickListener {
 
     override val kodein by kodein()
@@ -61,11 +60,10 @@ class MainFragment() : Fragment(), KodeinAware, OnItemClickListener {
         dotsIndicator.setViewPager(itemViewPager)
         itemViewPager.adapter?.registerDataSetObserver(dotsIndicator.dataSetObserver)
 
-        fragMainBinding.lifecycleOwner = viewLifecycleOwner
-//        fragMainBinding.mainFragmentViewModel = mainFragViewModel
-
-        setupProductListRowItemView(fragMainBinding.viewProdLayout.list_product)
 //        getProductList()
+        setupProductListRowItemView(fragMainBinding.viewProdLayout.list_product)
+
+        fragMainBinding.lifecycleOwner = viewLifecycleOwner
         return fragMainBinding.root
     }
 
@@ -82,8 +80,7 @@ class MainFragment() : Fragment(), KodeinAware, OnItemClickListener {
         activity.let {
             mainFragViewModel.getProductsList().observe(viewLifecycleOwner, Observer {
                 it.let {
-                    val productItemAdapter =
-                        fragMainBinding.viewProdLayout.list_product.adapter as ProductItemAdapter
+                    val productItemAdapter = fragMainBinding.viewProdLayout.list_product.adapter as ProductItemAdapter
                     productItemAdapter.setProductItemList(it as MutableList<ProductListResponse>)
                     productItemAdapter.setListener(this)
                 }
