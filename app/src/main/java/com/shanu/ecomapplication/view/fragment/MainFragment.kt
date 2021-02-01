@@ -62,6 +62,21 @@ class MainFragment() : Fragment(), KodeinAware, OnItemClickListener {
         dotsIndicator.setViewPager(itemViewPager)
         itemViewPager.adapter?.registerDataSetObserver(dotsIndicator.dataSetObserver)
 
+        getProductList()
+
+        fragMainBinding.lifecycleOwner = viewLifecycleOwner
+        return fragMainBinding.root
+    }
+
+    private fun setupProductListRowItemView(listProductRecyclerView: RecyclerView?) {
+        val productAdapter = ProductItemAdapter()
+        listProductRecyclerView?.adapter = productAdapter
+        val gridLayoutManager = GridLayoutManager(activity, 2, LinearLayoutManager.VERTICAL, false)
+        listProductRecyclerView?.layoutManager = gridLayoutManager // set LayoutManager to RecyclerView
+        productAdapter.setListener(this)
+    }
+
+    private fun getProductList() {
         activity?.let {
             mainFragViewModel?.getProductsList().observe(viewLifecycleOwner, Observer {
                 it.let {
@@ -71,17 +86,6 @@ class MainFragment() : Fragment(), KodeinAware, OnItemClickListener {
                 }
             })
         }
-
-        fragMainBinding.lifecycleOwner = viewLifecycleOwner
-        return fragMainBinding.root
-    }
-
-    private fun setupProductListRowItemView(listProductRecyclerView: RecyclerView?) {
-        val productAdapter = ProductItemAdapter()
-        listProductRecyclerView?.adapter = productAdapter
-        val gridLayoutManager = GridLayoutManager(activity, 2, LinearLayoutManager.HORIZONTAL, false)
-        listProductRecyclerView?.layoutManager = gridLayoutManager // set LayoutManager to RecyclerView
-        productAdapter.setListener(this)
     }
 
 }

@@ -1,7 +1,6 @@
 package com.shanu.ecomapplication.retrofit
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.shanu.ecomapplication.R
 import com.shanu.ecomapplication.model.ProductListResponse
