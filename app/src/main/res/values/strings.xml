@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EComApplication</string>
+    <string name="splash_title_name">ECom App</string>
+    <string name="connection_unavailable_desc">Connection is not available</string>
+    <string name="discounts_for_u">Discounts for You</string>
+    <string name="view_all">View All > </string>
+</resources>
