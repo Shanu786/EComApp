@@ -62,7 +62,7 @@ class MainFragment() : Fragment(), KodeinAware, OnItemClickListener {
         dotsIndicator.setViewPager(itemViewPager)
         itemViewPager.adapter?.registerDataSetObserver(dotsIndicator.dataSetObserver)
 
-        activity?.let {
+/*        activity?.let {
             mainFragViewModel?.getProductsList().observe(viewLifecycleOwner, Observer {
                 it.let {
                     val productItemAdapter = fragMainBinding.viewProdLayout.list_product.adapter as ProductItemAdapter
@@ -70,7 +70,7 @@ class MainFragment() : Fragment(), KodeinAware, OnItemClickListener {
                     productItemAdapter.setListener(this)
                 }
             })
-        }
+        }*/
 
         fragMainBinding.lifecycleOwner = viewLifecycleOwner
         return fragMainBinding.root
