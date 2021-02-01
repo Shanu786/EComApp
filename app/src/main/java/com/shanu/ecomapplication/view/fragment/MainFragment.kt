@@ -72,7 +72,7 @@ class MainFragment() : Fragment(), KodeinAware, OnItemClickListener {
         val productAdapter = ProductItemAdapter()
         listProductRecyclerView?.adapter = productAdapter
         val gridLayoutManager = GridLayoutManager(activity, 2, LinearLayoutManager.VERTICAL, false)
-        listProductRecyclerView?.layoutManager = gridLayoutManager // set LayoutManager to RecyclerView
+        listProductRecyclerView?.layoutManager = gridLayoutManager
         productAdapter.setListener(this)
     }
 
