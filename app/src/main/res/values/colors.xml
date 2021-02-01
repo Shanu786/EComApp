@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="app_bg_color">#FF03DAC5</color>
     <color name="green">#006400</color>
+    <color name="prod_item_color">#FCFCFC</color>
 </resources>

@@ -8,11 +8,11 @@
         android:topLeftRadius="5dp"
         android:topRightRadius="5dp" />
 
-    <solid android:color="@color/white" />
+    <solid android:color="@color/prod_item_color" />
 
     <stroke
         android:width="2dip"
-        android:color="@color/white" />
+        android:color="@color/prod_item_color" />
 
     <padding
         android:bottom="0dp"
