@@ -12,7 +12,7 @@ class MainFragRepository(var apiInterface: ApiInterface) : BaseRepository() {
 
     private var productListResponse: MutableLiveData<List<ProductListResponse>> = MutableLiveData()
 
-    fun getProductsListResponse(): LiveData<List<ProductListResponse>> {
+    fun getProductsListResponse(): MutableList<ProductListResponse> {
         var productListData: MutableList<ProductListResponse> = ArrayList()
 
         var productItem1 = ProductListResponse()
@@ -60,7 +60,7 @@ class MainFragRepository(var apiInterface: ApiInterface) : BaseRepository() {
         Log.e("scanItemVal", "scanItemVal :: $productListData")
         productListResponse.postValue(productListData)
 
-        return productListData as MutableLiveData<List<ProductListResponse>>
+        return productListData
     }
 
 }

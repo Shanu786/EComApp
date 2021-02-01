@@ -27,8 +27,8 @@ import org.kodein.di.android.x.kodein
 class MainFragment() : Fragment(), KodeinAware, OnItemClickListener {
 
     override val kodein by kodein()
-    private lateinit var fragMainBinding: FragmentMainBinding
     private val mainFragViewModel: MainFragViewModel by kodeinViewModel()
+    private lateinit var fragMainBinding: FragmentMainBinding
 
     private lateinit var itemViewPager: ViewPager
     private lateinit var dotsIndicator: DotsIndicator
@@ -62,7 +62,7 @@ class MainFragment() : Fragment(), KodeinAware, OnItemClickListener {
         dotsIndicator.setViewPager(itemViewPager)
         itemViewPager.adapter?.registerDataSetObserver(dotsIndicator.dataSetObserver)
 
-/*        activity?.let {
+        activity?.let {
             mainFragViewModel?.getProductsList().observe(viewLifecycleOwner, Observer {
                 it.let {
                     val productItemAdapter = fragMainBinding.viewProdLayout.list_product.adapter as ProductItemAdapter
@@ -70,7 +70,7 @@ class MainFragment() : Fragment(), KodeinAware, OnItemClickListener {
                     productItemAdapter.setListener(this)
                 }
             })
-        }*/
+        }
 
         fragMainBinding.lifecycleOwner = viewLifecycleOwner
         return fragMainBinding.root
