@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.shanu.ecomapplication.model.ProductListResponse
-import com.shanu.ecomapplication.retrofit.MainFragRepository
+import com.shanu.ecomapplication.repository.MainFragRepository
 
 class MainFragViewModel (application: Application, var mainFragRepository: MainFragRepository) : ViewModel() {
 

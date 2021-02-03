@@ -9,31 +9,36 @@
             type="com.shanu.ecomapplication.viewModel.MainFragViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/mainView"
+    <ScrollView
+        android:id="@+id/mainLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:background="@drawable/app_bg_color"
-        android:padding="15dp">
+        android:layout_height="match_parent">
 
-        <include
-            android:id="@+id/viewCarouselLayout"
-            layout="@layout/view_carousel"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainView"
             android:layout_width="match_parent"
-            android:layout_height="175dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent"
+            android:padding="15dp">
 
-        <include
-            android:id="@+id/viewProdLayout"
-            layout="@layout/view_product"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewCarouselLayout" />
+            <include
+                android:id="@+id/viewCarouselLayout"
+                layout="@layout/view_carousel"
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <include
+                android:id="@+id/viewProdLayout"
+                layout="@layout/view_product"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewCarouselLayout" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

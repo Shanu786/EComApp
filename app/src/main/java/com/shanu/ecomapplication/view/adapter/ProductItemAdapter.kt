@@ -16,7 +16,6 @@ class ProductItemAdapter() : RecyclerView.Adapter<ProductItemAdapter.DateViewHol
     private var prodItemList: MutableList<ProductListResponse>? = ArrayList()
     private lateinit var productItemRowBinding: ProductItemRowBinding
     private lateinit var listener: OnItemClickListener
-    private var selectedItemPosition = -1
 
     init {
         this.prodItemList = arrayListOf()
@@ -53,8 +52,7 @@ class ProductItemAdapter() : RecyclerView.Adapter<ProductItemAdapter.DateViewHol
         fun bindScanItemDetail(productListResponse: ProductListResponse) {
 
             if (productItemRowBinding.prodItemViewModel == null) {
-                productItemRowBinding.prodItemViewModel =
-                    ProductViewModel(productListResponse, itemView.context)
+                productItemRowBinding.prodItemViewModel = ProductViewModel(productListResponse, itemView.context)
             } else {
                 productItemRowBinding.prodItemViewModel!!.setProductDetail(productListResponse)
                 productItemRowBinding.executePendingBindings()

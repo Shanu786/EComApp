@@ -2,7 +2,7 @@ package com.shanu.ecomapplication
 
 import android.app.Application
 import androidx.lifecycle.ViewModelProvider
-import com.shanu.ecomapplication.retrofit.MainFragRepository
+import com.shanu.ecomapplication.repository.MainFragRepository
 import com.shanu.ecomapplication.retrofit.api.ApiInterface
 import com.shanu.ecomapplication.retrofit.base.RetrofitNetwork
 import com.shanu.ecomapplication.retrofit.interceptor.NetworkConnectionInterceptor

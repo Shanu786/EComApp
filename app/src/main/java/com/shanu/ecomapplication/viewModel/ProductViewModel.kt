@@ -1,6 +1,8 @@
 package com.shanu.ecomapplication.viewModel
 
 import android.content.Context
+import android.widget.ImageView
+import com.bumptech.glide.Glide
 import com.shanu.ecomapplication.model.ProductListResponse
 import java.util.*
 
